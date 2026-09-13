@@ -6,13 +6,60 @@ public class GeradorSenhaForte extends GeradorSenha {
 
     public GeradorSenhaForte(int tamanho) {
         // TODO validar tamanho mínimo
-        this.tamanho = tamanho;
+    	
+    	/* Anotacao do aluno: Deixei 4 caracteres minimos pois no enunciado, exige-se o uso obrigatorio de no minimo:
+    	   1 letra minuscula, 1 letra maiusula, 1 numero e 1 caractere especial */
+    	if (tamanho > 12 || tamanho < 4)
+    	{
+    		System.out.println("Digite um tamanho de senha válido! (Maximo 12 caracteres e minimo 4 caracteres)");
+    	}
+    	else
+    	{
+    		this.tamanho = tamanho;
+    	}
     }
 
     @Override
     public String gerarSenha() {
         // TODO implementar
-        return null;
+    	// Criação das variaveis e inicializacao
+    	char[] senha = new char[tamanho];
+    	char caractere = ' ';
+    	int i, tipoCaractere;
+    	
+    	// Atribuiçao dos caracteres obrigatorios, nao importa a ordem, pois depois será embaralhado	
+    	senha[0] = sortearCaractere(MAIUSCULAS);
+    	senha[1] = sortearCaractere(MINUSCULAS);
+    	senha[2] = sortearCaractere(NUMEROS);
+    	senha[3] = sortearCaractere(ESPECIAIS);
+    	
+    	for (i = 4; i < tamanho; i++)
+    	{
+    		//Decisao aleatoria do tipo de caracter, tipos numerados de 1 a 4
+    		tipoCaractere = random.nextInt(1,5);
+    		
+    		switch(tipoCaractere)
+    		{
+    			case 1:
+    				caractere = sortearCaractere(MAIUSCULAS);
+    				break;
+    			case 2:
+    				caractere = sortearCaractere(MINUSCULAS);
+    				break;
+    			case 3:
+    				caractere = sortearCaractere(NUMEROS);
+    				break;
+    			case 4:
+    				caractere = sortearCaractere(ESPECIAIS);
+    				break;
+    		}
+    		
+    		senha[i] = caractere;
+    	}
+    	
+    	String senhaForte = new String(senha);
+    	senhaForte = embaralhar(senhaForte);
+        return senhaForte;
     }
     
 }
