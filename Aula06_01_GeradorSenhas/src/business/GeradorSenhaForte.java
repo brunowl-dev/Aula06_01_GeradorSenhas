@@ -1,9 +1,10 @@
 package business;
+import java.util.Scanner;
 
 public class GeradorSenhaForte extends GeradorSenha {
 
     private int tamanho;
-
+    Scanner sc = new Scanner(System.in);
     public GeradorSenhaForte(int tamanho) {
         // TODO validar tamanho mínimo
     	
@@ -12,6 +13,11 @@ public class GeradorSenhaForte extends GeradorSenha {
     	if (tamanho > 12 || tamanho < 4)
     	{
     		System.out.println("Digite um tamanho de senha válido! (Maximo 12 caracteres e minimo 4 caracteres)");
+    		do {
+    			System.out.println("Digite novamente um tamanho: ");
+    			tamanho = sc.nextInt();
+    		} while (tamanho > 12 || tamanho < 4);
+    		this.tamanho = tamanho;
     	}
     	else
     	{

@@ -1,7 +1,6 @@
 package view;
 
-import business.GeradorSenha;
-
+import business.*;
 public class Principal {
 
     public static void main(String[] args) {
@@ -10,8 +9,6 @@ public class Principal {
 
         // TODO:
         // Gerar duas senhas fortes
-        // Gerar dois PINs
         // Utilizar a variável "gerador" para demonstrar polimorfismo
-
-    }
+    }		
 }
