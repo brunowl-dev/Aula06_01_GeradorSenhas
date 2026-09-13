@@ -34,5 +34,7 @@ public class Principal {
         System.out.println("PIN 2");
         System.out.println(gerador.gerarSenha());
         // Utilizar a variável "gerador" para demonstrar polimorfismo
+        
+        sc.close();
     }		
 }

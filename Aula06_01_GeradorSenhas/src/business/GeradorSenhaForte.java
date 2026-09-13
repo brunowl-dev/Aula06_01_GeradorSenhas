@@ -8,21 +8,19 @@ public class GeradorSenhaForte extends GeradorSenha {
     public GeradorSenhaForte(int tamanho) {
         // TODO validar tamanho mínimo
     	
-    	/* Anotacao do aluno: Deixei 4 caracteres minimos pois no enunciado, exige-se o uso obrigatorio de no minimo:
-    	   1 letra minuscula, 1 letra maiusula, 1 numero e 1 caractere especial */
-    	if (tamanho > 12 || tamanho < 4)
+    	if (tamanho < 12)
     	{
-    		System.out.println("Digite um tamanho de senha válido! (Maximo 12 caracteres e minimo 4 caracteres)");
+    		System.out.println("Digite um tamanho de senha válido! (Minimo 12 caracteres)");
     		do {
     			System.out.println("Digite novamente um tamanho: ");
     			tamanho = sc.nextInt();
-    		} while (tamanho > 12 || tamanho < 4);
+    		} while (tamanho <  12 );
     		this.tamanho = tamanho;
     	}
     	else
     	{
     		this.tamanho = tamanho;
-    	}
+    	}	
     }
 
     @Override
